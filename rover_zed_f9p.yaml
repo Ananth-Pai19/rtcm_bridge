@@ -1,0 +1,19 @@
+ublox_gps_node:
+  ros__parameters:
+    device: "/dev/ttyACM0"  
+    uart1:
+      baudrate: 115200
+    frame_id: "gps_link"
+    
+    # RTCM Settings
+    # This tells the node to listen for corrections on the /rtcm topic
+    # and "inject" them into the ZED-F9P automatically.
+    subscribe:
+      rtcm: true
+    
+    # Output Settings
+    publish:
+      all: true
+      nav:
+        pvt: true  # Position, Velocity, Time
+        sat: true  # Satellite status
